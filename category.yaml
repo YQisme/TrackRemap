@@ -1,0 +1,22 @@
+# 工装类别与 YOLO class id（track_id 仅用于追踪，与类别无关）
+workwear1: 
+  - type: 工装1
+  - classes: 0
+  - track_id: [1]
+workwear2: 
+  - type: 工装2
+  - classes: 1
+  - track_id: [12,14,17,22]
+workwear3: 
+  - type: 工装3
+  - classes: 2
+  - track_id: [13]
+workwear4: 
+  - type: 工装4
+  - classes: 3
+  - track_id: []
+noworkwear:
+  - type: 其他
+  - classes: 4
+  - track_id: []
+
