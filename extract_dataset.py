@@ -1,4 +1,5 @@
 import cv2
+import torch
 from ultralytics import YOLO
 import os
 from pathlib import Path
@@ -21,6 +22,9 @@ os.makedirs(OUT_LBL, exist_ok=True)
 if EXPORT_TRACK_ID:
     os.makedirs(OUT_LBL_TRACK_ID, exist_ok=True)
     os.makedirs(OUT_ID, exist_ok=True)
+
+DEVICE = 0 if torch.cuda.is_available() else "cpu"
+print(f"推理设备: {'GPU (cuda:0)' if DEVICE == 0 else 'CPU'}")
 
 model = YOLO(MODEL)
 
@@ -57,6 +61,7 @@ while True:
         conf=0.4,
         iou=0.5,
         imgsz=1280,
+        device=DEVICE,
         verbose=False
     )[0]
 
